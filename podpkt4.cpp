@@ -1,4 +1,4 @@
-﻿/*#include <iostream> // Biblioteka do obsługi strumieni wejścia/wyjścia.
+﻿#include <iostream> // Biblioteka do obsługi strumieni wejścia/wyjścia.
 #include <thread> // Biblioteka do obsługi wątków.
 #include <vector> // Biblioteka do obsługi kontenerów wektorowych.
 #include <string> // Biblioteka do obsługi ciągów znaków.
@@ -63,4 +63,3 @@ int main() { // Funkcja główna.
 
     return 0; // Zwrócenie wartości 0, co oznacza sukces wykonania programu.
 }
-*/
