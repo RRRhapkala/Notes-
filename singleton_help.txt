@@ -2,28 +2,38 @@
 
 Utworzenie klasy Singleton:
 
-Klasa Singleton jest zaprojektowana w taki sposób, że ma tylko jedną instancję. Jest to osiągnięte poprzez prywatny konstruktor oraz pole statyczne instance, które przechowuje wskaźnik do tej instancji.
+Klasa Singleton jest zaprojektowana w taki sposób, że ma tylko jedną instancję. 
+Jest to osiągnięte poprzez prywatny konstruktor oraz pole statyczne instance, które przechowuje wskaźnik do tej instancji.
 Serializacja danych:
 
-Metoda serialize klasy Singleton służy do zapisania danych obiektu Singleton do pliku. Działa to poprzez otwarcie pliku, zapisanie danych do niego, a następnie zamknięcie pliku.
+Metoda serialize klasy Singleton służy do zapisania danych obiektu Singleton do pliku. 
+Działa to poprzez otwarcie pliku, zapisanie danych do niego, a następnie zamknięcie pliku.
 Deserializacja danych:
 
-Metoda deserialize klasy Singleton służy do odczytania danych z pliku i zapisania ich w istniejącej instancji Singletona. Działa to poprzez otwarcie pliku, odczytanie danych, zapisanie ich w polu data instancji Singletona oraz zamknięcie pliku.
+Metoda deserialize klasy Singleton służy do odczytania danych z pliku i zapisania ich w istniejącej instancji Singletona. 
+Działa to poprzez otwarcie pliku, odczytanie danych, zapisanie ich w polu data instancji Singletona oraz zamknięcie pliku.
 Wykorzystanie Singletona:
 
-W funkcji main najpierw ustawiane są dane w instancji klasy Singleton, następnie te dane są serializowane do pliku. Następnie dane są deserializowane z tego pliku i porównywane z oryginalnymi danymi. Asercja sprawdza, czy dane po deserializacji są takie same jak oryginalne dane.
+W funkcji main najpierw ustawiane są dane w instancji klasy Singleton, następnie te dane są serializowane do pliku. 
+Następnie dane są deserializowane z tego pliku i porównywane z oryginalnymi danymi. 
+Asercja sprawdza, czy dane po deserializacji są takie same jak oryginalne dane.
 Rozwiązanie problemu:
 
-Problem polegał na tym, że poprzedni kod tworzył nową instancję Singletona podczas deserializacji, co łamało zasadę, że klasa Singleton ma tylko jedną instancję. W poprawionym kodzie, metoda deserialize działa poprawnie poprzez ustawienie danych w istniejącej instancji Singletona, dzięki czemu zachowana jest właściwość Singletona.
+Problem polegał na tym, że poprzedni kod tworzył nową instancję Singletona podczas deserializacji, co łamało zasadę, że klasa Singleton ma tylko jedną instancję. 
+W poprawionym kodzie, metoda deserialize działa poprawnie poprzez ustawienie danych w istniejącej instancji Singletona, dzięki czemu zachowana jest właściwość Singletona.
 
 
 ---------------------------PODPKT4------------------------
 
-Klasa Singleton zawiera pole statyczne instance, które jest oznaczone jako thread_local. Oznacza to, że dla każdego wątku istnieje oddzielna instancja tego pola.
+Klasa Singleton zawiera pole statyczne instance, które jest oznaczone jako thread_local. 
+Oznacza to, że dla każdego wątku istnieje oddzielna instancja tego pola.
 
-Metoda getInstance() klasy Singleton sprawdza, czy instancja dla danego wątku już istnieje. Jeśli nie, tworzy nową instancję Singletona dla danego wątku i zwraca ją. W ten sposób każdy wątek ma swoją własną instancję Singletona.
+Metoda getInstance() klasy Singleton sprawdza, czy instancja dla danego wątku już istnieje. 
+Jeśli nie, tworzy nową instancję Singletona dla danego wątku i zwraca ją. W ten sposób każdy wątek ma swoją własną instancję Singletona.
 
-Funkcja testFunction() jest uruchamiana dla każdego wątku w funkcji main(). W tej funkcji ustawiane są dane w instancji Singletona dla danego wątku i wyświetlany jest adres tej instancji. Dzięki temu możemy zobaczyć, że każdy wątek korzysta z różnych instancji Singletona.
+Funkcja testFunction() jest uruchamiana dla każdego wątku w funkcji main(). 
+W tej funkcji ustawiane są dane w instancji Singletona dla danego wątku i wyświetlany jest adres tej instancji. 
+Dzięki temu możemy zobaczyć, że każdy wątek korzysta z różnych instancji Singletona.
 
 W funkcji main() pętla tworzy 5 wątków, a następnie oczekuje na zakończenie każdego z nich.
 
@@ -33,4 +43,8 @@ Dzięki temu każdy wątek ma swoją własną instancję Singletona, a zmiany do
 
 -----------------------PODPKT1-----------------------------
 
-Ten kod próbuje rozwiązać problem odporności na współbieżne wykorzystanie kodu poprzez zastosowanie muteksów do synchronizacji dostępu do instancji Singletona oraz danych wewnątrz niego. Kod blokuje dostęp do instancji Singletona podczas jego tworzenia (getInstance()), a także podczas zapisu (setData()) i odczytu (getData()) danych. W ten sposób zapewniona jest bezpieczna i jednoczesna obsługa Singletona przez wiele wątków.
+Ten kod próbuje rozwiązać problem odporności na współbieżne wykorzystanie kodu poprzez zastosowanie muteksów do synchronizacji dostępu 
+do instancji Singletona oraz danych wewnątrz niego. 
+Kod blokuje dostęp do instancji Singletona podczas jego tworzenia (getInstance()), 
+a także podczas zapisu (setData()) i odczytu (getData()) danych. 
+W ten sposób zapewniona jest bezpieczna i jednoczesna obsługa Singletona przez wiele wątków.
